@@ -1,0 +1,151 @@
+.lanyard-wrapper {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1.2;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 32px;
+}
+
+.lanyard-band {
+  position: absolute;
+  top: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 120px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #8b5cf6, #06b6d4, #f59e0b);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+  z-index: 0;
+}
+
+.lanyard-card {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #111827, #1e293b);
+  border-radius: 32px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: grab;
+  z-index: 1;
+  touch-action: none;
+}
+
+.lanyard-card.dragging {
+  transition: none;
+  cursor: grabbing;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  padding: 2rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.card-top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.lanyard-hole {
+  width: 72px;
+  height: 24px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.card-image {
+  width: 124px;
+  height: 124px;
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-info {
+  text-align: center;
+  color: #e2e8f0;
+}
+
+.card-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.card-info p {
+  margin: 0.4rem 0 0;
+  color: #93c5fd;
+  font-size: 0.95rem;
+}
+
+.card-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.card-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #93c5fd;
+  text-decoration: none;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.card-link:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+.card-link .material-symbols-outlined {
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .lanyard-wrapper {
+    max-width: 320px;
+  }
+
+  .card-inner {
+    padding: 1.75rem 1.25rem 1.25rem;
+  }
+
+  .card-image {
+    width: 108px;
+    height: 108px;
+  }
+
+  .card-info h3 {
+    font-size: 1.3rem;
+  }
+}
