@@ -178,7 +178,6 @@ php artisan test
 - Email: m.awaludinmajid@gmail.com
 - WhatsApp: +62 852-1732-7220
 - GitHub: https://github.com/AwaludinMajid
-- LinkedIn: [Link LinkedIn jika ada]
 
 ## 📄 Lisensi
 
@@ -186,4 +185,4 @@ Proyek ini bersifat pribadi dan tidak untuk distribusi komersial. Kode dapat dig
 
 ---
 
-**Dibangun dengan ❤️ oleh M. Awaludin Majid**
+**Dibangun dengan  oleh M. Awaludin Majid**
