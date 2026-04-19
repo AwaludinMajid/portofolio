@@ -471,7 +471,11 @@
                 </div>
             </div>
             <div class="bg-surface-container-low p-8 border border-outline-variant/30">
-                <form class="space-y-6" id="contact-form">
+                @if(session('success'))
+                    <div class="mb-6 rounded-3xl bg-[#0b1326] border border-[#3b5f8a] p-4 text-secondary">{{ session('success') }}</div>
+                @endif
+                <form class="space-y-6" id="contact-form" action="/contact" method="post">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div>
                         <label class="block font-label text-[10px] text-secondary uppercase mb-2">Full Name</label>
                         <input name="name" class="w-full bg-surface-container-lowest border-none focus:ring-1 focus:ring-primary text-on-surface p-4 transition-all" placeholder="Enter your name" type="text" required />
@@ -503,33 +507,3 @@
         <a class="text-slate-500 hover:text-yellow-400 transition-all" href="https://wa.me/6285217327220" target="_blank" rel="noopener">WhatsApp</a>
     </div>
 </footer>
-
-<script>
-document.getElementById('contact-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const form = this;
-    const submitBtn = document.getElementById('submit-btn');
-    const formData = new FormData(form);
-
-    try {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-
-        // Simulate API call delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        console.log('Success: Message sent successfully!');
-        alert('Thank you! Your message has been received.');
-        form.reset();
-
-    } catch (error) {
-        console.log('Error:', error.message);
-        alert('An error occurred. Please try again.');
-    } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'SEND MESSAGE';
-    }
-});
-
-

@@ -1,10 +1,28 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
+use App\Models\ContactMessage;
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
+    if (
+        $request->query('name') &&
+        $request->query('email') &&
+        $request->query('subject') &&
+        $request->query('message')
+    ) {
+        ContactMessage::create([
+            'name' => $request->query('name'),
+            'email' => $request->query('email'),
+            'subject' => $request->query('subject'),
+            'message' => $request->query('message'),
+        ]);
+
+        return redirect('/')->with('success', 'Pesan berhasil dikirim.');
+    }
+
     return view('welcome');
 });
 
@@ -26,6 +44,7 @@ Route::get('/resume', function () {
 
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
 Route::post('/gallery/upload', [GalleryController::class, 'upload'])->name('gallery.upload');
+Route::match(['get', 'post'], '/contact', [ContactController::class, 'store'])->name('contact.store');
 
 // Routes untuk melihat pesan (sementara tanpa auth untuk kemudahan testing)
 Route::get('/admin/messages', [ContactController::class, 'index'])->name('admin.messages.index');
