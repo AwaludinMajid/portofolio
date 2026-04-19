@@ -25,6 +25,7 @@ Route::get('/resume', function () {
 });
 
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+Route::post('/gallery/upload', [GalleryController::class, 'upload'])->name('gallery.upload');
 
 // Routes untuk melihat pesan (sementara tanpa auth untuk kemudahan testing)
 Route::get('/admin/messages', [ContactController::class, 'index'])->name('admin.messages.index');

@@ -14,4 +14,30 @@ class GalleryController extends Controller
         return view('gallery', compact('photos'));
     }
 
+    public function upload(Request $request)
+    {
+        $request->validate([
+            'photo' => 'required|image|max:4096',
+        ]);
+
+        $file = $request->file('photo');
+        $filename = time() . '_' . preg_replace('/[^A-Za-z0-9\-_\.]/', '', $file->getClientOriginalName());
+        $directory = public_path('uploads/gallery');
+
+        if (! file_exists($directory)) {
+            mkdir($directory, 0755, true);
+        }
+
+        $file->move($directory, $filename);
+
+        $title = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+
+        Photo::create([
+            'title' => $title ?: 'Foto Gallery',
+            'description' => null,
+            'path' => 'uploads/gallery/' . $filename,
+        ]);
+
+        return redirect()->route('gallery.index')->with('success', 'Foto berhasil diunggah ke database.');
+    }
 }
