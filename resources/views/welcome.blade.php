@@ -106,7 +106,7 @@
     </style>
     @vite(['resources/css/app.css'])
 </head>
-<body class="font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<body class="font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
 <div class="grain-overlay"></div>
 <nav class="bg-[#0b1326]/80 backdrop-blur-xl font-['Space_Grotesk'] tracking-tight fixed top-0 w-full z-50 shadow-[0_10px_30px_-15px_rgba(0,212,255,0.1)] flex justify-between items-center px-8 py-4 max-w-full">
     <div class="text-xl font-bold tracking-widest text-yellow-400">M. AWALUDIN MAJID</div>
@@ -153,8 +153,8 @@
             <div class="absolute -top-20 -right-20 w-80 h-80 bg-primary-container/10 blur-[100px] rounded-full"></div>
             <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-secondary-container/10 blur-[100px] rounded-full"></div>
 
-            <div class="mx-auto max-w-md rounded-[2rem] border border-white/10 bg-slate-950/90 shadow-2xl shadow-cyan-500/10 overflow-hidden">
-                <div class="relative h-[600px] overflow-hidden">
+            <div class="mx-auto max-w-full sm:max-w-md rounded-[2rem] border border-white/10 bg-slate-950/90 shadow-2xl shadow-cyan-500/10 overflow-hidden">
+                <div class="relative h-[420px] md:h-[600px] overflow-hidden">
                     <img class="absolute inset-0 h-full w-full object-cover" src="{{ asset('images/profil.png') }}" alt="Background">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
                     <div class="absolute inset-x-0 top-16 px-8 text-center">
