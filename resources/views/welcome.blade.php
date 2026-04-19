@@ -119,12 +119,23 @@
         <a class="text-slate-300 hover:text-cyan-400 transition-colors" href="/gallery">Gallery</a>
         <a class="px-6 py-2 bg-primary-container text-on-primary-container font-bold hover:scale-105 active:scale-95 transition-all" href="#contact">Connect</a>
     </div>
-    <button class="md:hidden text-primary">
+    <button id="mobile-menu-button" class="md:hidden text-primary" aria-expanded="false" aria-label="Open menu">
         <span class="material-symbols-outlined">menu</span>
     </button>
 </nav>
+<div id="mobile-menu" class="fixed inset-x-0 top-20 z-40 hidden bg-[#0b1326]/95 backdrop-blur-xl px-6 py-6 md:hidden">
+    <div class="flex flex-col gap-4 text-lg">
+        <a class="block text-slate-200 hover:text-cyan-300 transition-colors" href="#about">About</a>
+        <a class="block text-slate-200 hover:text-cyan-300 transition-colors" href="#skills">Skills</a>
+        <a class="block text-slate-200 hover:text-cyan-300 transition-colors" href="#experience">Experience</a>
+        <a class="block text-slate-200 hover:text-cyan-300 transition-colors" href="#projects">Projects</a>
+        <a class="block text-slate-200 hover:text-cyan-300 transition-colors" href="#gaming">Gaming</a>
+        <a class="block text-slate-200 hover:text-cyan-300 transition-colors" href="/gallery">Gallery</a>
+        <a class="inline-block px-6 py-3 bg-primary-container text-on-primary-container font-bold rounded-full hover:scale-105 transition-all" href="#contact">Connect</a>
+    </div>
+</div>
 <main>
-    <section class="min-h-screen pt-32 pb-20 px-8 flex flex-col md:flex-row items-center gap-16 relative overflow-hidden" id="hero">
+    <section class="md:min-h-screen pt-32 pb-20 px-8 flex flex-col md:flex-row items-center gap-16 relative overflow-hidden" id="hero">
         <div class="flex-1 z-10">
             <div class="inline-flex items-center gap-2 mb-6 px-4 py-1 bg-surface-container-high rounded-full">
                 <span class="w-2 h-2 bg-secondary-container animate-pulse rounded-full"></span>
@@ -145,8 +156,17 @@
                     RESUME <span class="material-symbols-outlined">download</span>
                 </a>
             </div>
+            <div class="flex flex-col gap-6 mt-8 md:hidden">
+                <div class="flex items-center gap-4 rounded-[2rem] bg-slate-900/90 p-5 border border-white/10 shadow-2xl shadow-cyan-500/20">
+                    <img class="h-28 w-28 rounded-full border-2 border-white/20 object-cover" src="{{ asset('images/profil.png') }}" alt="Profile">
+                    <div>
+                        <p class="text-sm uppercase tracking-[0.2em] text-cyan-300/80">Hello, I'm</p>
+                        <p class="text-2xl font-bold text-white">Awaludin Majid</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="flex-1 relative">
+        <div class="flex-1 relative hidden md:block">
             <div class="absolute -top-20 -right-20 w-80 h-80 bg-primary-container/10 blur-[100px] rounded-full"></div>
             <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-secondary-container/10 blur-[100px] rounded-full"></div>
 
@@ -507,3 +527,27 @@
         <a class="text-slate-500 hover:text-yellow-400 transition-all" href="https://wa.me/6285217327220" target="_blank" rel="noopener">WhatsApp</a>
     </div>
 </footer>
+<script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function toggleMobileMenu() {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', String(!isOpen));
+        mobileMenuButton.querySelector('.material-symbols-outlined').textContent = isOpen ? 'menu' : 'close';
+    }
+
+    mobileMenuButton.addEventListener('click', toggleMobileMenu);
+    document.addEventListener('click', (event) => {
+        if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                mobileMenuButton.querySelector('.material-symbols-outlined').textContent = 'menu';
+            }
+        }
+    });
+</script>
+</body>
+</html>
