@@ -45,6 +45,10 @@ Route::get('/resume', function () {
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
 Route::match(['get', 'post'], '/contact', [ContactController::class, 'store'])->name('contact.store');
 
+// Admin routes
+Route::get('/admin/gallery', [GalleryController::class, 'adminIndex'])->name('admin.gallery.index');
+Route::post('/admin/gallery/upload', [GalleryController::class, 'upload'])->name('admin.gallery.upload');
+
 // Routes untuk melihat pesan (sementara tanpa auth untuk kemudahan testing)
 Route::get('/admin/messages', [ContactController::class, 'index'])->name('admin.messages.index');
 Route::get('/admin/messages/{id}', [ContactController::class, 'show'])->name('admin.messages.show');

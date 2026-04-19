@@ -263,6 +263,7 @@
                     </div>
                     <div class="flex gap-4">
                         <a href="/" class="btn">← Kembali ke Website</a>
+                        <a href="/admin/gallery" class="btn">Upload Gallery</a>
                         <button onclick="toggleDarkMode()" class="btn">
                             <span id="dark-mode-icon">🌙</span>
                         </button>

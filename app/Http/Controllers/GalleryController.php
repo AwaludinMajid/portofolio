@@ -14,6 +14,13 @@ class GalleryController extends Controller
         return view('gallery', compact('photos'));
     }
 
+    public function adminIndex()
+    {
+        $photos = Photo::orderBy('created_at', 'desc')->get();
+
+        return view('admin.gallery.index', compact('photos'));
+    }
+
     public function upload(Request $request)
     {
         $request->validate([
@@ -38,6 +45,6 @@ class GalleryController extends Controller
             'path' => 'uploads/gallery/' . $filename,
         ]);
 
-        return redirect()->route('gallery.index')->with('success', 'Foto berhasil diunggah ke database.');
+        return redirect()->route('admin.gallery.index')->with('success', 'Foto berhasil diunggah ke database.');
     }
 }
