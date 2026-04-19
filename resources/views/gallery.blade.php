@@ -147,18 +147,6 @@
             <div class="mb-8 rounded-3xl bg-[#0b1326] border border-[#3b5f8a] p-6 text-secondary">{{ session('success') }}</div>
         @endif
 
-        <div class="mb-8 rounded-3xl bg-[#0b1326] border border-[#3b5f8a] p-6">
-            <form action="{{ route('gallery.upload') }}" method="POST" enctype="multipart/form-data" class="grid gap-4">
-                @csrf
-                <div>
-                    <label class="block text-sm font-medium mb-2 text-on-surface">Pilih Foto</label>
-                    <input type="file" name="photo" accept="image/*" class="block w-full text-sm text-on-surface" required>
-                    @error('photo') <p class="text-sm text-red-400 mt-1">{{ $message }}</p> @enderror
-                </div>
-                <button type="submit" class="inline-flex items-center justify-center rounded-full bg-primary-container px-6 py-3 text-sm font-bold text-on-primary-container hover:bg-yellow-300 transition">Upload Foto</button>
-            </form>
-        </div>
-
         @if($photos->count() > 0)
             <div class="gallery-grid">
                 @foreach($photos as $photo)

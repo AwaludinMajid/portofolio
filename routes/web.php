@@ -43,7 +43,6 @@ Route::get('/resume', function () {
 });
 
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
-Route::post('/gallery/upload', [GalleryController::class, 'upload'])->name('gallery.upload');
 Route::match(['get', 'post'], '/contact', [ContactController::class, 'store'])->name('contact.store');
 
 // Routes untuk melihat pesan (sementara tanpa auth untuk kemudahan testing)
