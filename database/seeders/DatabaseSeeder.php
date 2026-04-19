@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            PhotoSeeder::class,
             ContactMessageSeeder::class,
         ]);
     }

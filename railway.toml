@@ -9,7 +9,8 @@ buildPhase = { cmd = "npm run build" }
 cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
 
 [deploy]
-preDeployCommand = "php artisan migrate --force && php artisan db:seed --force"
+preDeployCommand = "php artisan migrate --force"
 
 [env]
 NODE_ENV = "production"
+NODE_VERSION = "20"
