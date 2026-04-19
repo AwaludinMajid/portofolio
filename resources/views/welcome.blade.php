@@ -136,7 +136,8 @@
 </div>
 <main>
     <section class="md:min-h-screen pt-32 pb-20 px-8 flex flex-col md:flex-row items-center gap-16 relative overflow-hidden" id="hero">
-        <div class="flex-1 z-10">
+        <div class="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+        <div class="w-full lg:max-w-2xl flex-1 z-10">
             <div class="inline-flex items-center gap-2 mb-6 px-4 py-1 bg-surface-container-high rounded-full">
                 <span class="w-2 h-2 bg-secondary-container animate-pulse rounded-full"></span>
                 <span class="font-label text-[10px] uppercase tracking-[0.2em] text-secondary">Informatics Engineer</span>
@@ -166,14 +167,11 @@
                 </div>
             </div>
         </div>
-        <div class="flex-1 relative hidden md:block">
-            <div class="absolute -top-20 -right-20 w-80 h-80 bg-primary-container/10 blur-[100px] rounded-full"></div>
-            <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-secondary-container/10 blur-[100px] rounded-full"></div>
+        <div class="w-full lg:w-[520px] relative hidden md:block">
+            <div class="absolute -top-24 -right-10 w-72 h-72 bg-primary-container/10 blur-[90px] rounded-full"></div>
+            <div class="absolute -bottom-24 -left-10 w-72 h-72 bg-secondary-container/10 blur-[90px] rounded-full"></div>
 
-            <div class="absolute -top-20 -right-20 w-80 h-80 bg-primary-container/10 blur-[100px] rounded-full"></div>
-            <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-secondary-container/10 blur-[100px] rounded-full"></div>
-
-            <div class="mx-auto max-w-full sm:max-w-md rounded-[2rem] border border-white/10 bg-slate-950/90 shadow-2xl shadow-cyan-500/10 overflow-hidden">
+            <div class="mx-auto w-full max-w-xl rounded-[2rem] border border-white/10 bg-slate-950/90 shadow-2xl shadow-cyan-500/10 overflow-hidden">
                 <div class="relative h-[420px] md:h-[600px] overflow-hidden">
                     <img class="absolute inset-0 h-full w-full object-cover" src="{{ asset('images/profil.png') }}" alt="Background">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
@@ -197,6 +195,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </section>
     <section class="bg-surface-container-low py-24 px-8" id="about">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
